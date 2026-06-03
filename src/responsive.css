@@ -1,0 +1,10 @@
+@media (max-width: 800px) {
+    .txt{
+        font-size: 10rem;
+    }
+}
+@media (max-width: 600px) {
+    .txt{
+        font-size: 5rem;
+    }
+}
