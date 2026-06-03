@@ -1,6 +1,6 @@
 import React from 'react'
 import './index.css'
-import './app.css'
+import './App.css'
 import './responsive.css'
 
 const App = () => {
