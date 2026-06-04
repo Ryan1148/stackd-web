@@ -6,7 +6,9 @@ export default function handler(req,res){
     const apiKey = process.env.CLOUDINARY_API_KEY
     const cloudName = process.env.CLOUDINARY_CLOUD_NAME
 
-    const signature = crypto.createHash('sha1').update(`timestamp=${timestamp}${secret}`).digest('hex')
+    const publicId = req.query.public_id;
+
+    const signature = crypto.createHash('sha1').update(`public_id=${publicId}timestamp=${timestamp}${secret}`).digest('hex')
 
     res.status(200).json({
         timestamp,
