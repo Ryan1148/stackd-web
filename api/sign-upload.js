@@ -7,8 +7,9 @@ export default function handler(req,res){
     const cloudName = process.env.CLOUDINARY_CLOUD_NAME
 
     const publicId = req.query.public_id;
+    const stringToSign = `public_id=${publicId}&timestamp=${timestamp}`
 
-    const signature = crypto.createHash('sha1').update(`public_id=${publicId}timestamp=${timestamp}${secret}`).digest('hex')
+    const signature = crypto.createHash('sha1').update(stringToSign + secret).digest('hex')
 
     res.status(200).json({
         timestamp,
