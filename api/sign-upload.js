@@ -11,9 +11,9 @@ const s3 = new S3Client({
 
 export default async function handler(req,res){
 
-    const {fileName,fileType,userID} = req.body
+    const {fileType,userID} = req.body
 
-    const key = `Stackd/uploads/${userID}-${fileName}`
+    const key = `uploads/${userID}-profile`
     const cmd = new PutObjectCommand({
         Bucket: process.env.AWS_BUCKET_NAME,
         Key:key,
