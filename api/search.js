@@ -1,8 +1,15 @@
 import fs from 'fs'
+import path from 'path'
+import process from 'process'
 import Fuse from 'fuse.js'
 
+const filePath = path.join(
+    process.cwd(),
+    'stackd.exercises.json'
+)
+
 const data = JSON.parse(
-    fs.readFileSync('./stackd.exercises.json','utf-8')
+    fs.readFileSync(filePath,'utf-8')
 )
 
 const fuse = new Fuse(data,{
